@@ -62,4 +62,4 @@ class SIMLUser(HttpUser):
 
     def _perform_query(self, endpoint, query_params, name):
         headers = {"Accept": "application/json", "Accept-Language": "en", "Authorization": f"JWT {self.jwt_token}"}
-        response = self.client.get(f"{endpoint}?{query_params}", name=name, headers=headers)
+        self.client.get(f"{endpoint}?{query_params}", name=name, headers=headers)

@@ -95,8 +95,8 @@ class User:
 
         query = UserModel.search(session, query_string=search)
 
-        for key, val in filter.items():
-            query = query.filter(getattr(UserModel, key) == val)
+        for key, value in filter.items():
+            query = query.filter(getattr(UserModel, key) == value)
 
         total_items = query.count()
         users = query.offset((page.page_number - 1) * page.page_size).limit(page.page_size).all()

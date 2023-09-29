@@ -7,7 +7,7 @@ from jose import jwt
 from sqlalchemy.orm import Session
 
 from src.core.settings import SECRET_KEY
-from src.core.settings import JWT as JWTSettings
+from src.core.settings import JWT as JWTSettings  # noqa N811
 from src.helpers.jwt.models import AccessTokenModel
 from src.helpers.jwt.schemas import JWTTokenSchema
 from fastapi_babel import _

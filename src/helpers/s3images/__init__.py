@@ -38,7 +38,7 @@ class S3Images:
                     file_byte_string = await response.read()
                     return Image.open(BytesIO(file_byte_string))
                 else:
-                    raise S3ImagesUploadFailed(_("Failed to fetch image {} from bucket {}").format(key, self.bucket))
+                    raise S3ImagesUploadFailed(_("Failed to fetch image {} from bucket {}").format(key, self.bucket))  # noqa P103
 
     async def delete_s3(self, key):
         status = await asyncio.to_thread(self.s3.delete_object, Bucket=self.bucket, Key=key)
@@ -50,7 +50,7 @@ class S3Images:
         buffer.seek(0)
         sent_data = await asyncio.to_thread(self.s3.put_object, Bucket=self.bucket, ACL=self.acl, Key=key, Body=buffer, CacheControl=self.cache_control)
         if sent_data["ResponseMetadata"]["HTTPStatusCode"] != 200:
-            raise S3ImagesUploadFailed(_("Failed to upload image {} to bucket {}").format(key, self.bucket))
+            raise S3ImagesUploadFailed(_("Failed to upload image {} to bucket {}").format(key, self.bucket))  # noqa P103
 
     def __get_safe_ext(self, key):
         ext = os.path.splitext(key)[-1].strip(".").upper()

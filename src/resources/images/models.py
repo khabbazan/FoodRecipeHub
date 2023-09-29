@@ -22,7 +22,7 @@ class ImageModel(Basemodel):
 
     object_type = Column(Unicode(255))
     object_id = Column(Integer)
-    object = generic_relationship(object_type, object_id)
+    object = generic_relationship(object_type, object_id)  # noqa VNE003
 
     __filename = Column(String(36), unique=True, nullable=False)
     __created_at = Column(DateTime, default=datetime.datetime.utcnow)
@@ -44,7 +44,7 @@ class ImageModel(Basemodel):
 
     @base64_image.setter
     def base64_image(self, string):
-        setattr(self, "__base64_image", string)
+        setattr(self, "__base64_image", string)  # noqa B010
 
     @hybrid_property
     def created_at(self):

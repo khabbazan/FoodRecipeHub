@@ -16,13 +16,13 @@ from fastapi_babel import _
 class OAuth2PasswordJWT(OAuth2PasswordBearer):
     def __init__(
         self,
-        tokenUrl: str,
+        token_url: str,
         scheme_name: Optional[str] = None,
         scopes: Optional[dict] = None,
         auto_error: bool = True,
     ):
         super().__init__(
-            tokenUrl=tokenUrl,
+            tokenUrl=token_url,
             scopes=scopes,
             scheme_name=scheme_name,
             auto_error=auto_error,
@@ -43,7 +43,7 @@ class OAuth2PasswordJWT(OAuth2PasswordBearer):
         return param
 
 
-oauth2_scheme = OAuth2PasswordJWT(scheme_name="JWT", tokenUrl="/user/login")
+oauth2_scheme = OAuth2PasswordJWT(scheme_name="JWT", token_url="/user/login")
 
 
 def get_current_user(token: str = Depends(oauth2_scheme), db_session: Session = Depends(get_db_session)):

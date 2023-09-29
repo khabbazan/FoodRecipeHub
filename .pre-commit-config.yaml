@@ -56,3 +56,31 @@ repos:
     hooks:
       - id: black
         args: [--safe, --line-length=170]
+
+  - repo: https://github.com/PyCQA/flake8
+    rev: 3.7.9
+    hooks:
+      - id: flake8
+        language: python
+        name: flake8
+        description: Python style guide enforcement
+        additional_dependencies: [
+          'flake8-mutable', # Extension for mutable default arguments
+          'flake8-2020', # flake8 plugin which checks for misuse of `sys.version` or `sys.version_info`
+          'flake8-blind-except', # A flake8 extension that checks for blind except: statements
+          'flake8-bugbear', # A plugin for flake8 finding likely bugs and design problems in your program.
+          'flake8-builtins', # Check for python builtins being used as variables or parameters.
+          'flake8-comprehensions', # It helps you write a better list/set/dict comprehensions.
+          'flake8-copyright', # Adds copyright checks to flake8
+          'flake8-deprecated', # Warns about deprecated method calls.
+          'dlint', # Dlint is a tool for encouraging best coding practices and helping ensure we're writing secure Python code.
+          'flake8-alfred', # Alfred is a flake8 plugin to warn on unsafe/obsolete symbols
+          'flake8-broken-line', # Plugin to forbid backslashes (\) for line breaks
+          'flake8-debugger', # Debug statement checker
+          'flake8-logging-format', # Validate (lack of) logging format strings
+          'flake8-variables-names', # flake8 extension that helps to make more readable variables names
+          'flake8-tabs', # Tab (or Spaces) indentation style checker for flake8
+          'pep8-naming', # Check PEP-8 naming conventions, plugin for flake8
+          'flake8-string-format', # Check that indexed parameters are used in strings
+          'flake8-markdown', # Lints Python code blocks in Markdown files using flake8
+        ]

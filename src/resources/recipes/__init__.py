@@ -84,8 +84,8 @@ class Recipe:
 
         query = RecipeModel.search(session, query_string=search)
 
-        for key, val in filter.items():
-            query = query.filter(getattr(RecipeModel, key) == val)
+        for key, value in filter.items():
+            query = query.filter(getattr(RecipeModel, key) == value)
 
         total_items = query.count()
         recipes = query.offset((page.page_number - 1) * page.page_size).limit(page.page_size).all()

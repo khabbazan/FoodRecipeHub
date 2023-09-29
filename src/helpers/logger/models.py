@@ -1,6 +1,9 @@
 import enum
 from datetime import datetime
-from sqlalchemy import Column, Integer, JSON, DateTime, Enum
+from sqlalchemy import Column
+from sqlalchemy import JSON
+from sqlalchemy import DateTime
+from sqlalchemy import Enum
 
 from src.core.databse import Basemodel
 
@@ -16,7 +19,6 @@ class LogEntry(Basemodel):
 
     __tablename__ = "log_entries"
 
-    id = Column(Integer, primary_key=True)
     timestamp = Column(DateTime, default=datetime.utcnow)
     level = Column(Enum(LogLevel), nullable=False)
     message = Column(JSON)

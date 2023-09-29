@@ -39,7 +39,7 @@ app = FastAPI(
     redoc_url=settings.DOCS["redoc"],
 )
 
-logger.log(level=LogLevel.INFO, message=dict(data="Application initialized"))
+logger.log(level=LogLevel.INFO, message=dict(data="Application initialized"))  # noqa C408
 
 # Application routers
 app.include_router(user_router)
