@@ -1,0 +1,24 @@
+# Use an official Python runtime as a parent image
+FROM python:3.10-slim
+
+# Set environment variables for Python
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+# Create and set the working directory
+WORKDIR /app
+
+# Copy the requirements file into the container at /app
+COPY requirements.txt /app/
+
+# Install any needed packages specified in requirements.txt
+RUN pip install -r requirements.txt
+
+# Copy the current directory contents into the container at /app
+COPY . /app/
+
+# Expose the default port that FastAPI will run on
+EXPOSE 9000
+
+# Start the FastAPI application with uvicorn
+CMD ["python", "main.py"]
