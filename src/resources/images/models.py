@@ -14,7 +14,7 @@ from sqlalchemy.ext.hybrid import hybrid_property
 from sqlalchemy_utils import generic_relationship
 
 from src.core import settings
-from src.core.databse import Basemodel
+from src.core.database import Basemodel
 
 
 class ImageModel(Basemodel):

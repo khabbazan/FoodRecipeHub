@@ -9,7 +9,7 @@ from sqlalchemy.orm import relationship
 from sqlalchemy.ext.hybrid import hybrid_property
 from sqlalchemy import or_
 
-from src.core.databse import Basemodel
+from src.core.database import Basemodel
 from src.resources.images.models import ImageModel
 
 from src.resources.users.enums import GenderEnum

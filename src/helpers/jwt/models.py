@@ -5,7 +5,7 @@ from sqlalchemy import DateTime
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import relationship
 
-from src.core.databse import Basemodel
+from src.core.database import Basemodel
 
 
 class AccessTokenModel(Basemodel):

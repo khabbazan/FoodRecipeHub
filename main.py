@@ -8,8 +8,8 @@ from fastapi_babel.core import make_gettext as _
 from fastapi_babel.middleware import InternationalizationMiddleware
 
 from src.core import settings
-from src.core.databse import Basemodel
-from src.core.databse import engine
+from src.core.database import Basemodel
+from src.core.database import engine
 from src.helpers.logger import logger
 from src.helpers.logger.models import LogLevel
 from src.core.ratelimiter import limiter

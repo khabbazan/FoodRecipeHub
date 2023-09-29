@@ -8,7 +8,7 @@ from fastapi.security import OAuth2PasswordBearer
 from fastapi.security.utils import get_authorization_scheme_param
 
 from src.helpers.jwt import JWT
-from src.core.databse import get_db_session
+from src.core.database import get_db_session
 from src.resources.users.models import UserModel
 from fastapi_babel import _
 

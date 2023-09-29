@@ -5,7 +5,7 @@ from sqlalchemy import DateTime
 from sqlalchemy import ForeignKey
 from sqlalchemy.ext.hybrid import hybrid_property
 
-from src.core.databse import Basemodel
+from src.core.database import Basemodel
 
 
 class RelationModel(Basemodel):

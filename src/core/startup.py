@@ -1,4 +1,4 @@
-from src.core.databse import local_session
+from src.core.database import local_session
 
 
 class StartupManager:

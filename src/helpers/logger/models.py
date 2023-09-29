@@ -5,7 +5,7 @@ from sqlalchemy import JSON
 from sqlalchemy import DateTime
 from sqlalchemy import Enum
 
-from src.core.databse import Basemodel
+from src.core.database import Basemodel
 
 
 class LogLevel(enum.Enum):

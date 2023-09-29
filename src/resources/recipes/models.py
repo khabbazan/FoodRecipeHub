@@ -14,7 +14,7 @@ from sqlalchemy.orm import relationship
 from sqlalchemy.ext.hybrid import hybrid_property
 from sqlalchemy import or_
 
-from src.core.databse import Basemodel
+from src.core.database import Basemodel
 from src.resources.recipes.enums import TAGEnum
 from src.resources.recipes.fixtures import tag_fixtures
 
