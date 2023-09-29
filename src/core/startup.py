@@ -1,5 +1,5 @@
-
 from src.core.databse import local_session
+
 
 class StartupManager:
     def __init__(self):
@@ -13,7 +13,9 @@ class StartupManager:
         for method in self.startup_methods:
             method(session)
 
+
 startup_manager = StartupManager()
+
 
 async def startup_event():
 

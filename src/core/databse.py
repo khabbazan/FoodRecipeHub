@@ -12,14 +12,15 @@ engine = create_engine(DATABASE["URL"], **DATABASE["PARAMS"])
 
 local_session = sessionmaker(bind=engine, autocommit=False, autoflush=False)
 
+
 @as_declarative()
 class Basemodel:
-
     @declared_attr
     def __tablename__(cls):
         return cls.__name__.lower()
 
     id = Column(Integer, primary_key=True)
+
 
 def get_db_session():
     db_session = local_session()

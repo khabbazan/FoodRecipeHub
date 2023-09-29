@@ -1,5 +1,5 @@
-
 from src.resources.recipes.enums import TAGEnum
+
 
 def tag_fixtures(target, connection, *args, **kwargs):
 

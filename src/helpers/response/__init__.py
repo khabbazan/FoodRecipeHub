@@ -8,18 +8,17 @@ from src.helpers.response.schemas import ResponseWithTokenSchema
 from src.helpers.logger.models import LogLevel
 from src.helpers.logger import logger
 
+
 class Response:
-
     def __init__(
-            self,
-            message=None,
-            request=None,
-            error=None,
-            json_kwargs=None,
-            query_message=False,
-            print_console=True,
+        self,
+        message=None,
+        request=None,
+        error=None,
+        json_kwargs=None,
+        query_message=False,
+        print_console=True,
     ):
-
 
         self.request = request
         self.query_message = query_message
@@ -50,7 +49,6 @@ class Response:
             message=response,
         )
 
-
         if self.query_message:
             message = response.pop("message")
             if "page_count" not in message.keys():
@@ -58,12 +56,7 @@ class Response:
                     data=message["data"],
                 )
             else:
-                return ResponseListQuery(
-                    data=message["data"],
-                    page_count=message["page_count"],
-                    count=message["count"]
-                )
-
+                return ResponseListQuery(data=message["data"], page_count=message["page_count"], count=message["count"])
 
         elif "access_token" in response.keys():
             return ResponseWithTokenSchema(

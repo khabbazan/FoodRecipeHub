@@ -1,8 +1,8 @@
-
 from src.helpers.response import Response
 from src.resources.recipes import Recipe
 from src.resources.recipes import Tag
 from src.helpers.messages import get_message
+
 
 async def create(user, recipe_data, request, db_session, *args, **kwargs):
 
@@ -14,6 +14,7 @@ async def create(user, recipe_data, request, db_session, *args, **kwargs):
 
     return Response(message=msg, request=request, json_kwargs={"Recipe UUID": recipe.uuid})
 
+
 async def update(user, recipe_edit, request, db_session, *args, **kwargs):
 
     if await Recipe().update(user, recipe_edit, db_session):
@@ -22,6 +23,7 @@ async def update(user, recipe_edit, request, db_session, *args, **kwargs):
         msg = get_message("failed_update_recipe", **{"user": user.phone_number, "uuid": recipe_edit.uuid})
 
     return Response(message=msg, request=request)
+
 
 async def delete(user, recipe_uuid, request, db_session, *args, **kwargs):
 

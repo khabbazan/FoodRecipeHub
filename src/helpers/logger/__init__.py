@@ -1,6 +1,7 @@
 from src.core.databse import local_session
 from src.helpers.logger.models import LogEntry
 
+
 class LoggerSingletonMeta(type):
     _instances = {}
 
@@ -8,6 +9,7 @@ class LoggerSingletonMeta(type):
         if cls not in cls._instances:
             cls._instances[cls] = super(LoggerSingletonMeta, cls).__call__()
         return cls._instances[cls]
+
 
 class Logger(metaclass=LoggerSingletonMeta):
     def __init__(self):
@@ -19,5 +21,6 @@ class Logger(metaclass=LoggerSingletonMeta):
         session.add(entry)
         session.commit()
         session.refresh(entry)
+
 
 logger = Logger()

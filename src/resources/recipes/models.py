@@ -1,4 +1,3 @@
-
 import uuid
 import datetime
 from sqlalchemy import Column
@@ -20,11 +19,9 @@ from src.resources.recipes.enums import TAGEnum
 from src.resources.recipes.fixtures import tag_fixtures
 
 recipe_tag_association = Table(
-    'recipe_tag_association',
-    Basemodel.metadata,
-    Column('recipe_id', Integer, ForeignKey('recipes.id')),
-    Column('tag_id', Integer, ForeignKey('tags.id'))
+    "recipe_tag_association", Basemodel.metadata, Column("recipe_id", Integer, ForeignKey("recipes.id")), Column("tag_id", Integer, ForeignKey("tags.id"))
 )
+
 
 class TagModel(Basemodel):
     __tablename__ = "tags"
@@ -36,7 +33,7 @@ class RecipeModel(Basemodel):
     __tablename__ = "recipes"
 
     uuid = Column(String(36), unique=True, nullable=False, default=lambda x: str(uuid.uuid4()))
-    user_id = Column(Integer, ForeignKey('users.id'))
+    user_id = Column(Integer, ForeignKey("users.id"))
     title = Column(String, nullable=False)
     content = Column(TEXT, nullable=False)
     is_active = Column(Boolean, default=True)
@@ -66,4 +63,4 @@ class RecipeModel(Basemodel):
             return session.query(cls)
 
 
-event.listen(TagModel.__table__, 'after_create', tag_fixtures)
+event.listen(TagModel.__table__, "after_create", tag_fixtures)

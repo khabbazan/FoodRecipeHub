@@ -12,6 +12,7 @@ from src.core.databse import get_db_session
 from src.resources.users.models import UserModel
 from fastapi_babel import _
 
+
 class OAuth2PasswordJWT(OAuth2PasswordBearer):
     def __init__(
         self,
@@ -41,7 +42,9 @@ class OAuth2PasswordJWT(OAuth2PasswordBearer):
                 return None
         return param
 
+
 oauth2_scheme = OAuth2PasswordJWT(scheme_name="JWT", tokenUrl="/user/login")
+
 
 def get_current_user(token: str = Depends(oauth2_scheme), db_session: Session = Depends(get_db_session)):
     user_id = JWT.verify_token(token)

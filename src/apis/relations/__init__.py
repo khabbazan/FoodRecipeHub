@@ -26,13 +26,12 @@ router = APIRouter(
 )
 
 
-
 @router.post("/follow", status_code=status.HTTP_201_CREATED, response_model=ResponseSchema)
 async def follow(
-        request: Request,
-        following_phone_number: str = Query(),
-        current_user: str = Depends(get_current_user),
-        db_session: Session = Depends(get_db_session),
+    request: Request,
+    following_phone_number: str = Query(),
+    current_user: str = Depends(get_current_user),
+    db_session: Session = Depends(get_db_session),
 ):
     response = await follow_function(current_user, following_phone_number, request, db_session)
     return response.get()
@@ -40,10 +39,10 @@ async def follow(
 
 @router.post("/unfollow", status_code=status.HTTP_202_ACCEPTED, response_model=ResponseSchema)
 async def unfollow(
-        request: Request,
-        following_phone_number: str = Query(),
-        current_user: str = Depends(get_current_user),
-        db_session: Session = Depends(get_db_session),
+    request: Request,
+    following_phone_number: str = Query(),
+    current_user: str = Depends(get_current_user),
+    db_session: Session = Depends(get_db_session),
 ):
     response = await unfollow_function(current_user, following_phone_number, request, db_session)
     return response.get()
@@ -51,10 +50,10 @@ async def unfollow(
 
 @router.get("/follower_list", status_code=status.HTTP_200_OK, response_model=ResponseListQuery)
 async def follower_list(
-        request: Request,
-        current_user: str = Depends(get_current_user),
-        page: Page = Depends(Page),
-        db_session: Session = Depends(get_db_session),
+    request: Request,
+    current_user: str = Depends(get_current_user),
+    page: Page = Depends(Page),
+    db_session: Session = Depends(get_db_session),
 ):
     response = await follower_list_function(current_user, page, request, db_session)
     return response.get()
@@ -62,10 +61,10 @@ async def follower_list(
 
 @router.get("/following_list", status_code=status.HTTP_200_OK, response_model=ResponseListQuery)
 async def following_list(
-        request: Request,
-        current_user: str = Depends(get_current_user),
-        page: Page = Depends(Page),
-        db_session: Session = Depends(get_db_session),
+    request: Request,
+    current_user: str = Depends(get_current_user),
+    page: Page = Depends(Page),
+    db_session: Session = Depends(get_db_session),
 ):
     response = await following_list_function(current_user, page, request, db_session)
     return response.get()

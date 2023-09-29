@@ -1,4 +1,3 @@
-
 import datetime
 from sqlalchemy import Column
 from sqlalchemy import Integer
@@ -12,8 +11,8 @@ from src.core.databse import Basemodel
 class RelationModel(Basemodel):
     __tablename__ = "relations"
 
-    follower_id = Column(Integer, ForeignKey('users.id'))
-    following_id = Column(Integer, ForeignKey('users.id'))
+    follower_id = Column(Integer, ForeignKey("users.id"))
+    following_id = Column(Integer, ForeignKey("users.id"))
 
     __followed_on = Column(DateTime, default=datetime.datetime.utcnow)
 

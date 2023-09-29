@@ -1,4 +1,3 @@
-
 from src.helpers.response import Response
 from src.resources.users import User
 from src.helpers.messages import get_message
@@ -48,6 +47,7 @@ async def logout(user, request, db_session, *args, **kwargs):
         msg = get_message("failed_logout_user", **{"user": user.phone_number})
 
     return Response(message=msg, request=request)
+
 
 async def refresh(user, refresh_token, request, db_session, *args, **kwargs):
 

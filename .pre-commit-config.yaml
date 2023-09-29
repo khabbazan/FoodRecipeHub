@@ -8,13 +8,6 @@ repos:
     - id: shell-lint
       args: ['--exclude','SC1090,SC2046,SC2005,SC2035,SC2086']
 
-  - repo: https://github.com/timothycrosley/isort
-    rev: 4.3.21
-    hooks:
-    - id: isort
-      language: python
-      args: ["-sl", "-l 120"]
-
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v2.4.0
     hooks:

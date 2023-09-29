@@ -48,4 +48,3 @@ Feel free to contribute to this project by opening issues or pull requests if yo
 ## Author
 
 - [Alireza Khabbazan](https://github.com/khabbazan)
-

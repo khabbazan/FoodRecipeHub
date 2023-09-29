@@ -5,6 +5,7 @@ from fastapi.responses import JSONResponse
 from slowapi.errors import RateLimitExceeded
 from fastapi_babel.core import make_gettext as _
 
+
 class BadRequestException(Exception):
     def __init__(self, message="Bad Request", status_code=status.HTTP_400_BAD_REQUEST):
         self.message = _(message)
@@ -22,17 +23,11 @@ class CredentialException(Exception):
 
 
 def handle_credential_exception(request: Request, exc: CredentialException):
-    return JSONResponse(
-        status_code=exc.status_code,
-        content={"msg": exc.message, "type": exc.error_type}
-    )
+    return JSONResponse(status_code=exc.status_code, content={"msg": exc.message, "type": exc.error_type})
 
 
 def handle_bad_request_exception(request: Request, exc: BadRequestException):
-    return JSONResponse(
-        status_code=exc.status_code,
-        content={"msg": exc.message, "type": exc.error_type}
-    )
+    return JSONResponse(status_code=exc.status_code, content={"msg": exc.message, "type": exc.error_type})
 
 
 def handle_value_error_exception(request: Request, exc: ValueError):
@@ -47,18 +42,11 @@ def handle_value_error_exception(request: Request, exc: ValueError):
     else:
         error_details.append({"msg": str(exc), "type": "Value Error"})
 
-    return JSONResponse(
-        status_code=400,
-        content={"detail": error_details}
-    )
+    return JSONResponse(status_code=400, content={"detail": error_details})
 
 
 def handle_rate_limit_exception(request: Request, exc: RateLimitExceeded) -> Response:
 
-    response = JSONResponse(
-        {"error": f'Rate limit exceeded: {exc.detail}'}, status_code=429
-    )
-    response = request.app.state.limiter._inject_headers(
-        response, request.state.view_rate_limit
-    )
+    response = JSONResponse({"error": f"Rate limit exceeded: {exc.detail}"}, status_code=429)
+    response = request.app.state.limiter._inject_headers(response, request.state.view_rate_limit)
     return response

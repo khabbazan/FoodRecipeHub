@@ -68,7 +68,6 @@ if settings.DEBUG:
     app.mount(settings.MEDIA_URL, StaticFiles(directory=settings.MEDIA_ROOT), name="media")
 
 
-
 @app.get("/")
 def index(request: Request):
     return {"data": _("welcome to FoodRecipeHub!!!")}

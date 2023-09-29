@@ -14,6 +14,7 @@ from src.resources.images.models import ImageModel
 
 from src.resources.users.enums import GenderEnum
 
+
 class UserModel(Basemodel):
     __tablename__ = "users"
 
@@ -21,7 +22,7 @@ class UserModel(Basemodel):
     email = Column(String, nullable=True)
     gender = Column(Enum(GenderEnum), nullable=True)
     is_online = Column(Boolean, default=False)
-    password = Column(PasswordType(schemes=['pbkdf2_sha512']), nullable=False)
+    password = Column(PasswordType(schemes=["pbkdf2_sha512"]), nullable=False)
 
     __created_at = Column(DateTime, default=datetime.datetime.utcnow)
 
@@ -49,13 +50,9 @@ class UserModel(Basemodel):
         else:
             return session.query(cls)
 
-
     def get_avatars(self, session):
         avatars = session.query(ImageModel).filter_by(object=self).all()
-        return [
-            avatar.url
-            for avatar in avatars
-        ]
+        return [avatar.url for avatar in avatars]
 
     async def set_avatar(self, name, base64_image, session):
         avatars = session.query(ImageModel).filter_by(object=self).all()

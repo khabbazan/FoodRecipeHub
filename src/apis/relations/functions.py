@@ -1,4 +1,3 @@
-
 from src.helpers.response import Response
 from src.helpers.messages import get_message
 
@@ -15,7 +14,6 @@ async def follow(user, following_phone_number, request, db_session, *args, **kwa
     return Response(message=msg, request=request)
 
 
-
 async def unfollow(user, following_phone_number, request, db_session, *args, **kwargs):
 
     if await Relation().unfollow(user, following_phone_number, db_session):
@@ -26,7 +24,6 @@ async def unfollow(user, following_phone_number, request, db_session, *args, **k
     return Response(message=msg, request=request)
 
 
-
 async def follower_list(user, page, request, db_session, *args, **kwargs):
 
     followers = await Relation().follower_list(user, page, db_session)
@@ -34,10 +31,8 @@ async def follower_list(user, page, request, db_session, *args, **kwargs):
     return Response(message=followers, request=request, query_message=True)
 
 
-
 async def following_list(user, page, request, db_session, *args, **kwargs):
 
     following = await Relation().following_list(user, page, db_session)
 
     return Response(message=following, request=request, query_message=True)
-

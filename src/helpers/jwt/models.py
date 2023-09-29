@@ -7,10 +7,11 @@ from sqlalchemy.orm import relationship
 
 from src.core.databse import Basemodel
 
-class AccessTokenModel(Basemodel):
-    __tablename__ = 'access_tokens'
 
-    user_id = Column(Integer, ForeignKey('users.id'))
+class AccessTokenModel(Basemodel):
+    __tablename__ = "access_tokens"
+
+    user_id = Column(Integer, ForeignKey("users.id"))
     refresh_token = Column(String)
     refresh_token_expiration = Column(DateTime)
 

@@ -1,5 +1,6 @@
 from enum import Enum
 
+
 class GenderEnum(Enum):
-    MALE = 'male'
-    FEMALE = 'female'
+    MALE = "male"
+    FEMALE = "female"

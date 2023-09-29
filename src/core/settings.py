@@ -1,4 +1,3 @@
-
 import os
 from pathlib import Path
 
@@ -34,7 +33,7 @@ _DB_NAME = ""
 
 DATABASE = {
     "URL": f"sqlite:///.//db.sqlite3" if DEBUG else f"postgresql+psycopg2://{_DB_USER}:{_DB_PASSWORD}@{_DB_HOST}:{_DB_PORT}/{_DB_NAME}",
-    "PARAMS": {"connect_args": {"check_same_thread": False}} if DEBUG else {"isolation_level": "REPEATABLE READ"}
+    "PARAMS": {"connect_args": {"check_same_thread": False}} if DEBUG else {"isolation_level": "REPEATABLE READ"},
 }
 
 ########## JWT Settings ##########
@@ -51,11 +50,7 @@ RATE_LIMIT = {
 }
 
 ########## Language Settings ##########
-LANGUAGE = {
-    "default": "en",
-    "supported": ["en", "fa"],
-    "dir": os.path.join(BASE_DIR, "locale")
-}
+LANGUAGE = {"default": "en", "supported": ["en", "fa"], "dir": os.path.join(BASE_DIR, "locale")}
 
 ########## Language Settings ##########
 CACHE = {
@@ -73,21 +68,18 @@ if DEBUG:
 else:
     S3_CONFIGS = {
         "service_name": "s3",
-
         "aws_access_key_id": "",
         "aws_secret_access_key": "",
         "aws_storage_bucket_name": "",
         "aws_s3_region_name": None,
         "aws_s3_custom_domain": "",
         "aws_s3_endpoint_url": "",
-
         "aws_s3_file_overwrite": True,
-        "aws_default_acl": 'public-read',
+        "aws_default_acl": "public-read",
         "aws_s3_object_parameters": {
             "cachecontrol": "max-age=86400",
         },
     }
-
 
     MEDIA_URL = f"https://{S3_CONFIGS['aws_s3_custom_domain']}/"
     MEDIA_ROOT = f"https://{S3_CONFIGS['aws_s3_custom_domain']}/"

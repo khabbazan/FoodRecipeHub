@@ -7,7 +7,7 @@ from src.helpers.logger.models import LogLevel
 from src.helpers.cache import get_redis_pool
 
 
-def cache(cache_key, timeout=settings.CACHE['DEFAULT_EXPIRE_TIME']):
+def cache(cache_key, timeout=settings.CACHE["DEFAULT_EXPIRE_TIME"]):
     def decorator(func):
         @wraps(func)
         async def wrapper(*args, **kwargs):

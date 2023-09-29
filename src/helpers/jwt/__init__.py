@@ -12,8 +12,8 @@ from src.helpers.jwt.models import AccessTokenModel
 from src.helpers.jwt.schemas import JWTTokenSchema
 from fastapi_babel import _
 
-class JWT:
 
+class JWT:
     @classmethod
     def create_access_token(cls, user_id: int, session: Session) -> JWTTokenSchema:
         to_encode = {"sub": str(user_id)}
@@ -28,11 +28,7 @@ class JWT:
 
         access_token = jwt.encode(to_encode, SECRET_KEY, algorithm=JWTSettings.get("ALGORITHM"))
 
-        record = AccessTokenModel(
-            user_id=user_id,
-            refresh_token=refresh_token,
-            refresh_token_expiration=refresh_token_expire
-        )
+        record = AccessTokenModel(user_id=user_id, refresh_token=refresh_token, refresh_token_expiration=refresh_token_expire)
 
         session.add(record)
         session.commit()
@@ -55,7 +51,6 @@ class JWT:
         expiration_time = datetime.fromtimestamp(payload.get("exp", 0))
         return current_time > expiration_time
 
-
     @classmethod
     def verify_token(cls, token: str) -> int | Exception:
         try:
@@ -68,7 +63,6 @@ class JWT:
 
             user_id = int(payload["sub"])
             return user_id
-
 
     @classmethod
     def update_token(cls, user_id: int, refresh_token: str, session: Session) -> JWTTokenSchema:
@@ -84,7 +78,6 @@ class JWT:
             session.query(AccessTokenModel).filter(AccessTokenModel.refresh_token == refresh_token).delete()
             session.commit()
             return cls.create_access_token(user_id=user_id, session=session)
-
 
     @classmethod
     def expire_token(cls, user_id: int, session: Session) -> bool:

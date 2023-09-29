@@ -1,4 +1,3 @@
-
 import re
 from typing import Optional
 from typing import Any
@@ -7,6 +6,7 @@ from pydantic import field_validator
 
 from src.resources.recipes.enums import TAGEnum
 from fastapi_babel.core import make_gettext as _
+
 
 class RecipeSchema(BaseModel):
     title: str
@@ -23,18 +23,18 @@ class RecipeSchema(BaseModel):
             func["name"](*func["args"])
         return True
 
-    @field_validator('title')
+    @field_validator("title")
     def validate_title(cls, title):
-        len_ptr = re.compile(r'^\w.{8,}\w$')
+        len_ptr = re.compile(r"^\w.{8,}\w$")
         if not re.match(len_ptr, title):
-            raise ValueError(_('Recipe title must contain at least 8 characters'))
+            raise ValueError(_("Recipe title must contain at least 8 characters"))
         return title
 
-    @field_validator('content')
+    @field_validator("content")
     def validate_content(cls, content):
-        len_ptr = re.compile(r'^\w.{8,}\w$')  # todo: update for 50 chars
+        len_ptr = re.compile(r"^\w.{8,}\w$")  # todo: update for 50 chars
         if not re.match(len_ptr, content):
-            raise ValueError(_('Recipe content must contain at least 50 characters'))
+            raise ValueError(_("Recipe content must contain at least 50 characters"))
         return content
 
 

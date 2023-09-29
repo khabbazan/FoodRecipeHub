@@ -35,9 +35,9 @@ router = APIRouter(
 
 @router.post("/login", status_code=status.HTTP_201_CREATED, response_model=ResponseWithTokenSchema | ResponseSchema)
 async def login_create(
-        request: Request,
-        form_data: UserLoginForm = Depends(),
-        db_session: Session = Depends(get_db_session),
+    request: Request,
+    form_data: UserLoginForm = Depends(),
+    db_session: Session = Depends(get_db_session),
 ):
     response = await login_create_function(form_data.to_schema(), request, db_session)
     return response.get()
@@ -45,10 +45,10 @@ async def login_create(
 
 @router.post("/update", status_code=status.HTTP_202_ACCEPTED, response_model=ResponseSchema)
 async def update(
-        request: Request,
-        edit_data: UserEditSchema = Depends(),
-        current_user: str = Depends(get_current_user),
-        db_session: Session = Depends(get_db_session),
+    request: Request,
+    edit_data: UserEditSchema = Depends(),
+    current_user: str = Depends(get_current_user),
+    db_session: Session = Depends(get_db_session),
 ):
     response = await update_function(current_user, edit_data, request, db_session)
     return response.get()
@@ -56,12 +56,12 @@ async def update(
 
 @router.get("/list", status_code=status.HTTP_200_OK, response_model=ResponseListQuery)
 async def show_all(
-        request: Request,
-        search: Optional[str] = Query(None),
-        filter: UserFilterSchema = Depends(UserFilterSchema),
-        page: Page = Depends(Page),
-        current_user: str = Depends(get_current_user),
-        db_session: Session = Depends(get_db_session),
+    request: Request,
+    search: Optional[str] = Query(None),
+    filter: UserFilterSchema = Depends(UserFilterSchema),
+    page: Page = Depends(Page),
+    current_user: str = Depends(get_current_user),
+    db_session: Session = Depends(get_db_session),
 ):
     response = await show_all_function(search, filter, page, request, db_session)
     return response.get()
@@ -69,9 +69,9 @@ async def show_all(
 
 @router.get("/detail", status_code=status.HTTP_200_OK, response_model=ResponseQuery)
 async def show_detail(
-        request: Request,
-        current_user: str = Depends(get_current_user),
-        db_session: Session = Depends(get_db_session),
+    request: Request,
+    current_user: str = Depends(get_current_user),
+    db_session: Session = Depends(get_db_session),
 ):
     response = await show_detail_function(current_user, request, db_session)
     return response.get()
@@ -79,19 +79,20 @@ async def show_detail(
 
 @router.get("/logout", status_code=status.HTTP_200_OK, response_model=ResponseSchema)
 async def logout(
-        request: Request,
-        current_user: str = Depends(get_current_user),
-        db_session: Session = Depends(get_db_session),
+    request: Request,
+    current_user: str = Depends(get_current_user),
+    db_session: Session = Depends(get_db_session),
 ):
     response = await logout_function(current_user, request, db_session)
     return response.get()
 
+
 @router.get("/refreshToken", status_code=status.HTTP_200_OK, response_model=ResponseWithTokenSchema)
 async def refresh(
-        request: Request,
-        refresh_token: str = Query(),
-        current_user: str = Depends(get_current_user),
-        db_session: Session = Depends(get_db_session),
+    request: Request,
+    refresh_token: str = Query(),
+    current_user: str = Depends(get_current_user),
+    db_session: Session = Depends(get_db_session),
 ):
     response = await refresh_function(current_user, refresh_token, request, db_session)
     return response.get()

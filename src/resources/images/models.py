@@ -69,7 +69,6 @@ class ImageModel(Basemodel):
 
         return img_bytes, ext
 
-
     async def delete(self, session):
 
         if os.path.exists(self.path):

@@ -1,4 +1,3 @@
-
 from src.helpers.cache.decorators import cache
 from src.helpers.cache.decorators import expire_cache
 
@@ -13,7 +12,6 @@ from src.core.exceptions import CredentialException
 
 
 class User:
-
     async def login_create(self, user_data, db_session):
 
         query = db_session.query(UserModel).filter(UserModel.phone_number == user_data.phone_number)
@@ -22,7 +20,6 @@ class User:
             return await self._login(find_user=query.first(), user_data=user_data, session=db_session)
         else:
             return await self._create(user_data=user_data, session=db_session)
-
 
     @staticmethod
     @expire_cache(cache_keys=["user_detail"])
@@ -38,7 +35,6 @@ class User:
 
         return tokens
 
-
     @staticmethod
     @expire_cache(cache_keys=["user_list"])
     async def _create(user_data, session) -> JWTTokenSchema:
@@ -51,7 +47,6 @@ class User:
         session.commit()
 
         return tokens
-
 
     async def update(self, user, data, db_session):
 
@@ -69,7 +64,6 @@ class User:
 
         return await self._update(user=user, data=validate_schema, session=db_session)
 
-
     @staticmethod
     @expire_cache(cache_keys=["user_list", "user_detail"])
     async def _update(user, data, session) -> bool:
@@ -84,7 +78,6 @@ class User:
         if avatar is not None:
             await user.set_avatar(name=avatar["name"], base64_image=avatar["base64_image"], session=session)
 
-
         result = session.query(UserModel).filter(UserModel.id == user.id).update(values=data)
         session.commit()
 
@@ -95,7 +88,6 @@ class User:
         trim_filter_param = {key: value for key, value in filter.model_dump().items() if value is not None and value != ""}
 
         return await self._show_all(search=search, filter=trim_filter_param, page=page, session=db_session)
-
 
     @staticmethod
     @cache(cache_key="user_list", timeout=1000)
@@ -109,10 +101,7 @@ class User:
         total_items = query.count()
         users = query.offset((page.page_number - 1) * page.page_size).limit(page.page_size).all()
 
-        user_flatten_query = [
-            UserQuerySchemaSimple(phone_number=user.phone_number, email=user.email).model_dump()
-            for user in users
-        ]
+        user_flatten_query = [UserQuerySchemaSimple(phone_number=user.phone_number, email=user.email).model_dump() for user in users]
 
         return {
             "data": user_flatten_query,
@@ -120,11 +109,9 @@ class User:
             "count": total_items,
         }
 
-
     async def show_detail(self, user, db_session):
 
         return await self._show_detail(user=user, session=db_session)
-
 
     @staticmethod
     @cache(cache_key="user_detail")
@@ -150,7 +137,6 @@ class User:
             return await self._logout(user=query.first(), session=db_session)
         return False
 
-
     @staticmethod
     @expire_cache(cache_keys=["user_detail"])
     async def _logout(user, session):
@@ -169,7 +155,6 @@ class User:
         if query.count():
             return await self._refresh(user=query.first(), refresh_token=refresh_token, session=db_session)
         return False
-
 
     @staticmethod
     async def _refresh(user, refresh_token, session):
