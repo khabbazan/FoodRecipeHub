@@ -6,7 +6,7 @@ from slowapi.errors import RateLimitExceeded
 from fastapi_babel.core import make_gettext as _
 
 class BadRequestException(Exception):
-    def __init__(self, message=_("Bad Request"), status_code=status.HTTP_400_BAD_REQUEST):
+    def __init__(self, message="Bad Request", status_code=status.HTTP_400_BAD_REQUEST):
         self.message = _(message)
         self.status_code = status_code
         self.error_type = "Bad Request Exception"
@@ -14,7 +14,7 @@ class BadRequestException(Exception):
 
 
 class CredentialException(Exception):
-    def __init__(self, message=_("Invalid Credentials"), status_code=status.HTTP_401_UNAUTHORIZED):
+    def __init__(self, message="Invalid Credentials", status_code=status.HTTP_401_UNAUTHORIZED):
         self.message = _(message)
         self.status_code = status_code
         self.error_type = "Credential Exception"
