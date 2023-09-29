@@ -1,0 +1,196 @@
+# Food Recipe Hub Translation Document.
+# Copyright (C) 2023 FoodRecipeHub
+# Alireza Khabbazan ar@khabbazan@gmail.com, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2023-09-29 18:08+0330\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: ar@khabbazan@gmail.com\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.12.1\n"
+
+#: src/helpers/jwt/__init__.py:64
+msgid "Invalid Credentials."
+msgstr ""
+
+#: src/helpers/jwt/__init__.py:67
+msgid "Token Expired."
+msgstr ""
+
+#: src/helpers/jwt/__init__.py:78
+msgid "Invalid refresh token"
+msgstr ""
+
+#: src/helpers/jwt/__init__.py:82
+msgid "Could not validate timestamps"
+msgstr ""
+
+#: src/helpers/jwt/oauth2.py:37
+msgid "Not authenticated"
+msgstr ""
+
+#: src/helpers/messages/message_source.py:7
+msgid "user '{user}' login successfully"
+msgstr ""
+
+#: src/helpers/messages/message_source.py:10
+msgid "user '{user}' login failed"
+msgstr ""
+
+#: src/helpers/messages/message_source.py:13
+msgid "user '{user}' update successfully"
+msgstr ""
+
+#: src/helpers/messages/message_source.py:16
+msgid "user '{user}' update failed"
+msgstr ""
+
+#: src/helpers/messages/message_source.py:19
+msgid "user '{user}' logout successfully"
+msgstr ""
+
+#: src/helpers/messages/message_source.py:22
+msgid "user '{user}' logout failed"
+msgstr ""
+
+#: src/helpers/messages/message_source.py:25
+msgid "refresh token for user '{user}' update successfully"
+msgstr ""
+
+#: src/helpers/messages/message_source.py:28
+msgid "refresh token for user '{user}' update failed"
+msgstr ""
+
+#: src/helpers/messages/message_source.py:32
+msgid "recipe '{title}' for '{user}' create successfully"
+msgstr ""
+
+#: src/helpers/messages/message_source.py:35
+msgid "recipe '{title}' for '{user}' create failed"
+msgstr ""
+
+#: src/helpers/messages/message_source.py:38
+msgid "recipe '{uuid}' updated by {user} successfully"
+msgstr ""
+
+#: src/helpers/messages/message_source.py:41
+msgid "recipe '{uuid}' was not successfully updated by {user}"
+msgstr ""
+
+#: src/helpers/messages/message_source.py:44
+msgid "recipe '{uuid}' deleted by {user} successfully"
+msgstr ""
+
+#: src/helpers/messages/message_source.py:47
+msgid "recipe '{uuid}' was not successfully deleted by {user}"
+msgstr ""
+
+#: src/helpers/messages/message_source.py:51
+msgid "user '{user}' follows '{following}' successfully"
+msgstr ""
+
+#: src/helpers/messages/message_source.py:54
+msgid "user '{user}' failed to follow '{following}'"
+msgstr ""
+
+#: src/helpers/messages/message_source.py:57
+msgid "user '{user}' unfollow '{following}' successfully"
+msgstr ""
+
+#: src/helpers/messages/message_source.py:60
+msgid "user '{user}' failed to unfollow '{following}'"
+msgstr ""
+
+#: src/helpers/s3images/__init__.py:46
+msgid "Failed to fetch image {} from bucket {}"
+msgstr ""
+
+#: src/helpers/s3images/__init__.py:60
+msgid "Failed to upload image {} to bucket {}"
+msgstr ""
+
+#: src/helpers/s3images/__init__.py:69
+msgid "Extension is invalid"
+msgstr ""
+
+#: src/resources/images/schemas.py:27
+msgid "Image name is not valid. there is no file extension."
+msgstr ""
+
+#: src/resources/images/schemas.py:36
+msgid "Base64 content is not valid"
+msgstr ""
+
+#: src/resources/recipes/__init__.py:43 src/resources/recipes/__init__.py:72
+msgid "The requested recipe does not belong to the authenticated user"
+msgstr ""
+
+#: src/resources/recipes/schemas.py:30
+msgid "Recipe title must contain at least 8 characters"
+msgstr ""
+
+#: src/resources/recipes/schemas.py:37
+msgid "Recipe content must contain at least 50 characters"
+msgstr ""
+
+#: src/resources/relations/__init__.py:22
+msgid "The requested following not find"
+msgstr ""
+
+#: src/resources/relations/__init__.py:50
+msgid "The requested following does not followed to the authenticated user"
+msgstr ""
+
+#: src/resources/users/schemas.py:39
+msgid "Invalid phone number"
+msgstr ""
+
+#: src/resources/users/schemas.py:47
+msgid "Password must contain at least 8 characters"
+msgstr ""
+
+#: src/resources/users/schemas.py:51
+msgid "Password must contain at least one lowercase character"
+msgstr ""
+
+#: src/resources/users/schemas.py:55
+msgid "Password must contain at least one uppercase character"
+msgstr ""
+
+#: src/resources/users/schemas.py:59
+msgid "Password must contain at least one digit character"
+msgstr ""
+
+#: src/resources/users/schemas.py:69
+msgid "Invalid email address"
+msgstr ""
+
+msgid "Bad Request"
+msgstr ""
+
+msgid "Invalid Credentials"
+msgstr ""
+
+msgid "new"
+msgstr ""
+
+msgid "trend"
+msgstr ""
+
+msgid "professional"
+msgstr ""
+
+msgid "male"
+msgstr ""
+
+msgid "female"
+msgstr ""
+

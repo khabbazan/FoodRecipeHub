@@ -1,0 +1,16 @@
+# Food Recipe Hub Translation Document.
+# Copyright (C) 2023 FoodRecipeHub
+# Alireza Khabbazan ar@khabbazan@gmail.com, 2023.
+#
+msgid ""
+msgstr ""
+"Last-Translator: ar@khabbazan@gmail.com\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+
+
+#: ./main.py:59
+msgid "welcome to FoodRecipeHub!!!"
+msgstr ""
