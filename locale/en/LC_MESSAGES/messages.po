@@ -4,10 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: PROJECT VERSION\n"
-"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-09-29 18:08+0330\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: ar@khabbazan@gmail.com\n"
 "Language: en\n"
 "Language-Team: en <LL@li.org>\n"
