@@ -34,7 +34,7 @@ if len(sys.argv) >= 2:
         ########## settings.py ##########
         with open(str(os.getcwd()) + "/src/core/settings.py") as f:
             content_settings = f.read()
-        with open(str(os.getcwd()) + "/src/settings.py", "w+") as f:
+        with open(str(os.getcwd()) + "/src/core/settings.py", "w+") as f:
             content_new = re.sub(r'BUILD_NUMBER\s=\s"\w+"', f'BUILD_NUMBER = "{COMMITID}"', content_settings, flags=re.M)  # noqa
             f.write(content_new)
         #################################
