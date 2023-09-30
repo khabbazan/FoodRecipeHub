@@ -64,7 +64,7 @@ class RecipeSchema(BaseModel):
         Raises:
             ValueError: If the content does not meet the length requirement.
         """
-        len_ptr = re.compile(r"^\w.{8,}\w$")  # todo: update for 50 chars
+        len_ptr = re.compile(r"^\w.{50,}\w$")
         if not re.match(len_ptr, content):
             raise ValueError(_("Recipe content must contain at least 50 characters"))
         return content

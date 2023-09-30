@@ -72,7 +72,7 @@ class UserSchema(BaseModel):
             ValueError: If the password does not meet the requirements.
         """
         if password:
-            len_ptr = re.compile(r"[\w$./]+")  # Check if password has at least 8 characters  # Todo: Edit regular exp
+            len_ptr = re.compile(r"[\w$./]{8,}")
             if not re.match(len_ptr, password):
                 raise ValueError(_("Password must contain at least 8 characters"))
 
