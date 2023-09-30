@@ -22,7 +22,7 @@ DOCS = {
 
 ########## Version Settings ##########
 VERSION = "1.0.0"
-BUILD_NUMBER = "1e0c5e56"
+BUILD_NUMBER = "23951e46"
 
 ########## Database Settings ##########
 _DB_USER = ""
