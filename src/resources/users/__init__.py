@@ -231,6 +231,7 @@ class User:
         user_flatten = UserQuerySchema(
             phone_number=user.phone_number,
             email=user.email,
+            gender=user.gender.value if user.gender else "",
             is_online=user.is_online,
             recipes=[recipe.uuid for recipe in user.recipes],
             avatars=user.get_avatars(session=session),

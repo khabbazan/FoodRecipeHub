@@ -137,6 +137,7 @@ class UserQuerySchemaSimple(BaseModel):
 class UserQuerySchema(BaseModel):
     phone_number: str = Field(description="The phone number or username of the user.")
     email: str = Field(description="The email address of the user.")
+    gender: str = Field("", description="The gender of the user")
     is_online: bool = Field(description="Indicates whether the user is online or not.")
     recipes: List[str] = Field([], description="A list of recipe IDs associated with the user.")
     avatars: List[str] = Field([], description="A list of avatar image URLs associated with the user.")
