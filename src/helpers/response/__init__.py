@@ -10,6 +10,35 @@ from src.helpers.logger import logger
 
 
 class Response:
+    """
+    Response is a utility class for constructing API responses.
+
+    This class helps in creating structured API responses by combining message, error, and additional data.
+    It also logs the response and allows printing it to the console with color-coded indicators.
+
+    Args:
+        message (str, optional): The main message to include in the response.
+        request (str, optional): The request context associated with the response.
+        error (str, optional): An error message to include in the response.
+        json_kwargs (dict, optional): Additional JSON data to include in the response.
+        query_message (bool, optional): Indicates if the response is for a query operation.
+        print_console (bool, optional): Indicates whether to print the response to the console.
+
+    Methods:
+        get(): Get the constructed response as a specific response schema based on the provided data.
+
+    Example usage:
+
+    ```python
+    response = Response(message="Success", json_kwargs={"data": {"key": "value"}})
+    result = response.get()
+    ```
+
+    In this example, the `Response` class is used to construct a response with a message and additional data.
+    The `get()` method is then called to obtain the response in the desired schema format.
+
+    """
+
     def __init__(
         self,
         message=None,
@@ -33,6 +62,21 @@ class Response:
             self.json_kwargs["error"] = error
 
     def get(self):
+        """
+        Get the constructed response as a specific response schema.
+
+        Returns:
+            ResponseQuery or ResponseSchema or ResponseListQuery or ResponseWithTokenSchema:
+                The constructed response as an instance of a specific response schema.
+
+        Example usage:
+
+        ```python
+        response = Response(message="Success", json_kwargs={"data": {"key": "value"}})
+        result = response.get()
+        ```
+
+        """
 
         kwargs = copy.deepcopy(self.json_kwargs)
         response = {k: v for k, v in kwargs.items() if v is not None}

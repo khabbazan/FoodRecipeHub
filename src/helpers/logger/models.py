@@ -16,6 +16,18 @@ class LogLevel(enum.Enum):
 
 
 class LogEntry(Basemodel):
+    """
+    LogEntry represents a log entry in the database.
+
+    This model stores log entries, including the timestamp, log level, and log message.
+
+    Attributes:
+        id (int): The primary key for the log entry record.
+        timestamp (DateTime): The timestamp when the log entry was created.
+        level (LogLevel): The log level (e.g., INFO, ERROR).
+        message (JSON): The log message in JSON format.
+
+    """
 
     __tablename__ = "log_entries"
 
